@@ -1,26 +1,34 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Threading.Tasks;
-using DAL.Entities;
+﻿using AutoMapper;
+using BLL.Constants;
+using BLL.Interfaces;
 using DAL.Repositories;
 using MainWebApp.Models.Account;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using System.Collections.Generic;
+using System.Security.Claims;
+using System.Threading.Tasks;
 
 namespace MainWebApp.Conrtollers
 {
     public class AccountController : Controller
     {
-        private readonly Repository rep;
+        private readonly IUserService _userService;
+        private readonly ILogger<AccountController> _logger;
+        private readonly IMapper _mapper;
 
-        public AccountController(Repository rep, ILogger<AccountController> logger)
+        public AccountController(
+            IUserService userService,
+            ILogger<AccountController> logger,
+            IMapper mapper)
         {
-            this.rep = rep;
+            _userService = userService;
+            _logger = logger;
+            _mapper = mapper;
         }
+
         [HttpGet]
         public IActionResult Login()
         {
@@ -29,7 +37,7 @@ namespace MainWebApp.Conrtollers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Login(LoginModel model)
+        public async Task<IActionResult> Login(LoginViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -53,7 +61,7 @@ namespace MainWebApp.Conrtollers
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Register(RegisterModel model)
+        public async Task<IActionResult> Register(RegisterViewModel model)
         {
             if (ModelState.IsValid)
             {
@@ -61,9 +69,7 @@ namespace MainWebApp.Conrtollers
                 //if (user == null)
                 //{
                 //    // добавляем пользователя в бд
-                //    db.Users.Add(new User { Email = model.Email, Password = model.Password });
-                //    await db.SaveChangesAsync();
-
+              
                 //    await Authenticate(model.Login, "user"); // аутентификация
 
                 //    return RedirectToAction("Index", "Home");
@@ -83,7 +89,12 @@ namespace MainWebApp.Conrtollers
                 new Claim(ClaimsIdentity.DefaultRoleClaimType, role)
             };
             // создаем объект ClaimsIdentity
-            ClaimsIdentity id = new ClaimsIdentity(claims, "ApplicationCookie", ClaimsIdentity.DefaultNameClaimType, ClaimsIdentity.DefaultRoleClaimType);
+            ClaimsIdentity id = new ClaimsIdentity(
+                claims,
+                AccountConstants.AuthenticatedType,
+                ClaimsIdentity.DefaultNameClaimType,
+                ClaimsIdentity.DefaultRoleClaimType
+                );
             // установка аутентификационных куки
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
         }

@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace MainWebApp.Models.Account
+namespace BLL.DTO
 {
-    public class UserModel
+    public class UserDTO
     {
         public int Id { get; set; }
 

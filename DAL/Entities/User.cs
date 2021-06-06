@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.AspNetCore.Identity;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -12,6 +13,8 @@ namespace DAL.Entities
 
         public string Password { get; set; }
 
-        public string Role { get; set; }
+        public int RoleId { get; set; }
+
+        public Role Role { get; set; }
     }
 }

@@ -1,0 +1,71 @@
+2021-06-05 20:31:47.8293 Info Message Template Auto Format enabled
+2021-06-05 20:31:47.9595 Info Adding target FileTarget(Name=MainWebApp)
+2021-06-05 20:31:48.0540 Info Validating config: TargetNames=MainWebApp, ConfigItems=14, FilePath=C:\Users\D\Desktop\Программирование\Git\Проекты для портфолио\MainSite\MainWebApp\MainWebApp\bin\Debug\netcoreapp3.1\NLog.config
+2021-06-05 20:31:48.1189 Info Configuration initialized.
+2021-06-05 20:31:48.1208 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.10.13013. Product version: 4.7.10+8142cd035d2c212fd82a4eb0081aed68da713b9e. GlobalAssemblyCache: False
+2021-06-05 20:31:50.6478 Info AppDomain Shutting down. Logger closing...
+2021-06-05 20:31:50.7026 Info Logger has been shut down.
+2021-06-05 20:33:10.0267 Info Message Template Auto Format enabled
+2021-06-05 20:33:10.1354 Info Adding target FileTarget(Name=MainWebApp)
+2021-06-05 20:33:10.2754 Info Validating config: TargetNames=MainWebApp, ConfigItems=14, FilePath=C:\Users\D\Desktop\Программирование\Git\Проекты для портфолио\MainSite\MainWebApp\MainWebApp\bin\Debug\netcoreapp3.1\NLog.config
+2021-06-05 20:33:10.3230 Info Configuration initialized.
+2021-06-05 20:33:10.3230 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.10.13013. Product version: 4.7.10+8142cd035d2c212fd82a4eb0081aed68da713b9e. GlobalAssemblyCache: False
+2021-06-05 20:33:16.4187 Info AppDomain Shutting down. Logger closing...
+2021-06-05 20:33:16.4749 Info Logger has been shut down.
+2021-06-05 20:39:33.9568 Info Message Template Auto Format enabled
+2021-06-05 20:39:34.0771 Info Adding target FileTarget(Name=MainWebApp)
+2021-06-05 20:39:34.1787 Info Validating config: TargetNames=MainWebApp, ConfigItems=14, FilePath=C:\Users\D\Desktop\Программирование\Git\Проекты для портфолио\MainSite\MainWebApp\MainWebApp\bin\Debug\netcoreapp3.1\NLog.config
+2021-06-05 20:39:34.2214 Info Configuration initialized.
+2021-06-05 20:39:34.2214 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.10.13013. Product version: 4.7.10+8142cd035d2c212fd82a4eb0081aed68da713b9e. GlobalAssemblyCache: False
+2021-06-05 20:39:40.6759 Info AppDomain Shutting down. Logger closing...
+2021-06-05 20:39:40.7218 Info Logger has been shut down.
+2021-06-05 20:40:29.9850 Info Message Template Auto Format enabled
+2021-06-05 20:40:30.3593 Info Adding target FileTarget(Name=MainWebApp)
+2021-06-05 20:40:30.4827 Info Validating config: TargetNames=MainWebApp, ConfigItems=14, FilePath=C:\Users\D\Desktop\Программирование\Git\Проекты для портфолио\MainSite\MainWebApp\MainWebApp\bin\Debug\netcoreapp3.1\NLog.config
+2021-06-05 20:40:30.5335 Info Configuration initialized.
+2021-06-05 20:40:30.5335 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.10.13013. Product version: 4.7.10+8142cd035d2c212fd82a4eb0081aed68da713b9e. GlobalAssemblyCache: False
+2021-06-05 20:40:39.5787 Info AppDomain Shutting down. Logger closing...
+2021-06-05 20:40:39.6350 Info Logger has been shut down.
+2021-06-06 12:59:34.6560 Info Message Template Auto Format enabled
+2021-06-06 12:59:34.8003 Info Adding target FileTarget(Name=MainWebApp)
+2021-06-06 12:59:34.8876 Info Validating config: TargetNames=MainWebApp, ConfigItems=14, FilePath=C:\Users\D\Desktop\Программирование\Git\Проекты для портфолио\MainSite\MainWebApp\MainWebApp\bin\Debug\netcoreapp3.1\NLog.config
+2021-06-06 12:59:34.9342 Info Configuration initialized.
+2021-06-06 12:59:34.9342 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.10.13013. Product version: 4.7.10+8142cd035d2c212fd82a4eb0081aed68da713b9e. GlobalAssemblyCache: False
+2021-06-06 12:59:41.8488 Info AppDomain Shutting down. Logger closing...
+2021-06-06 12:59:41.9015 Info Logger has been shut down.
+2021-06-06 13:07:30.1684 Info Message Template Auto Format enabled
+2021-06-06 13:07:30.3026 Info Adding target FileTarget(Name=MainWebApp)
+2021-06-06 13:07:30.3674 Info Validating config: TargetNames=MainWebApp, ConfigItems=14, FilePath=C:\Users\D\Desktop\Программирование\Git\Проекты для портфолио\MainSite\MainWebApp\MainWebApp\bin\Debug\netcoreapp3.1\NLog.config
+2021-06-06 13:07:30.4115 Info Configuration initialized.
+2021-06-06 13:07:30.4115 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.10.13013. Product version: 4.7.10+8142cd035d2c212fd82a4eb0081aed68da713b9e. GlobalAssemblyCache: False
+2021-06-06 13:07:43.6598 Info AppDomain Shutting down. Logger closing...
+2021-06-06 13:07:43.7255 Info Logger has been shut down.
+2021-06-06 13:09:09.2090 Info Message Template Auto Format enabled
+2021-06-06 13:09:09.3260 Info Adding target FileTarget(Name=MainWebApp)
+2021-06-06 13:09:09.3944 Info Validating config: TargetNames=MainWebApp, ConfigItems=14, FilePath=C:\Users\D\Desktop\Программирование\Git\Проекты для портфолио\MainSite\MainWebApp\MainWebApp\bin\Debug\netcoreapp3.1\NLog.config
+2021-06-06 13:09:09.4382 Info Configuration initialized.
+2021-06-06 13:09:09.4382 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.10.13013. Product version: 4.7.10+8142cd035d2c212fd82a4eb0081aed68da713b9e. GlobalAssemblyCache: False
+2021-06-06 13:09:20.2467 Info AppDomain Shutting down. Logger closing...
+2021-06-06 13:09:20.2828 Info Logger has been shut down.
+2021-06-06 13:46:27.6622 Info Message Template Auto Format enabled
+2021-06-06 13:46:27.9168 Info Adding target FileTarget(Name=MainWebApp)
+2021-06-06 13:46:28.0912 Info Validating config: TargetNames=MainWebApp, ConfigItems=14, FilePath=C:\Users\D\Desktop\Программирование\Git\Проекты для портфолио\MainSite\MainWebApp\MainWebApp\bin\Debug\netcoreapp3.1\NLog.config
+2021-06-06 13:46:28.1790 Info Configuration initialized.
+2021-06-06 13:46:28.1928 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.10.13013. Product version: 4.7.10+8142cd035d2c212fd82a4eb0081aed68da713b9e. GlobalAssemblyCache: False
+2021-06-06 13:48:47.0587 Info Message Template Auto Format enabled
+2021-06-06 13:48:47.2404 Info Adding target FileTarget(Name=MainWebApp)
+2021-06-06 13:48:47.3569 Info Validating config: TargetNames=MainWebApp, ConfigItems=14, FilePath=C:\Users\D\Desktop\Программирование\Git\Проекты для портфолио\MainSite\MainWebApp\MainWebApp\bin\Debug\netcoreapp3.1\NLog.config
+2021-06-06 13:48:47.4549 Info Configuration initialized.
+2021-06-06 13:48:47.4549 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.10.13013. Product version: 4.7.10+8142cd035d2c212fd82a4eb0081aed68da713b9e. GlobalAssemblyCache: False
+2021-06-06 13:56:13.6347 Info Message Template Auto Format enabled
+2021-06-06 13:56:13.8670 Info Adding target FileTarget(Name=MainWebApp)
+2021-06-06 13:56:14.0087 Info Validating config: TargetNames=MainWebApp, ConfigItems=14, FilePath=C:\Users\D\Desktop\Программирование\Git\Проекты для портфолио\MainSite\MainWebApp\MainWebApp\bin\Debug\netcoreapp3.1\NLog.config
+2021-06-06 13:56:14.1189 Info Configuration initialized.
+2021-06-06 13:56:14.1189 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.10.13013. Product version: 4.7.10+8142cd035d2c212fd82a4eb0081aed68da713b9e. GlobalAssemblyCache: False
+2021-06-06 14:01:01.3386 Info AppDomain Shutting down. Logger closing...
+2021-06-06 14:01:01.3644 Info Logger has been shut down.
+2021-06-06 14:07:45.9966 Info Message Template Auto Format enabled
+2021-06-06 14:07:46.2216 Info Adding target FileTarget(Name=MainWebApp)
+2021-06-06 14:07:46.3614 Info Validating config: TargetNames=MainWebApp, ConfigItems=14, FilePath=C:\Users\D\Desktop\Программирование\Git\Проекты для портфолио\MainSite\MainWebApp\MainWebApp\bin\Debug\netcoreapp3.1\NLog.config
+2021-06-06 14:07:46.4555 Info Configuration initialized.
+2021-06-06 14:07:46.4555 Info NLog, Version=4.0.0.0, Culture=neutral, PublicKeyToken=5120e14c03d0593c. File version: 4.7.10.13013. Product version: 4.7.10+8142cd035d2c212fd82a4eb0081aed68da713b9e. GlobalAssemblyCache: False

@@ -1,31 +1,35 @@
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using DAL;
-using DAL.Repositories;
-using Microsoft.AspNetCore.Authentication.Cookies;
+using AutoMapper;
+using Extensions;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.Http;
+using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WebUI.Mapping;
 
 namespace MainWebApp
 {
     public class Startup
     {
+        public Startup(IConfiguration configuration)
+        {
+            _configuration = configuration;
+        }
+
+        public IConfiguration _configuration { get; }
+
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddCustomDbContext(_configuration);
+
+            services.AddCustomAuthentication();
+
+            services.RegisterServices();
+
             services.AddControllersWithViews();
 
-            services.AddSingleton<Repository>();
-
-            services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
-                .AddCookie(options =>
-                {
-                    options.LoginPath = new PathString("/Account/Login");
-                });
+            var mapper = MapperCreater.CreateMapperConfig();
+            services.AddSingleton(mapper);
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
@@ -34,6 +38,8 @@ namespace MainWebApp
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseStatusCodePages();
 
             app.UseRouting();
 
@@ -46,6 +52,8 @@ namespace MainWebApp
                      name: "default",
                      pattern: "{controller=Home}/{action=Index}/{id?}");
             });
-        }
+
+            app.InitialDatabase();
+        }        
     }
 }

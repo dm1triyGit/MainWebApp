@@ -1,4 +1,5 @@
-﻿using DAL.Interfaces;
+﻿using DAL.Entities;
+using DAL.Interfaces;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -7,32 +8,34 @@ using System.Xml.Serialization;
 
 namespace DAL.Repositories
 {
-    public class Repository : IRepository
+    public class UserRepository : IUserRepository
     {
-        private readonly ILogger<Repository> logger;
-        private  string dataBasePath;
-
-        public Repository(ILogger<Repository> logger)
-        {
-            this.logger = logger;            
-        }
-
-        public T GetAll<T>()
+        public void Create(User item)
         {
             throw new NotImplementedException();
         }
 
-        public T GetById<T>(int id)
+        public void Delete(int id)
         {
             throw new NotImplementedException();
         }
 
-        public bool Save<T>(T model)
+        public IEnumerable<User> Find(Func<User, bool> predicate)
         {
             throw new NotImplementedException();
         }
 
-        public bool Update<T>(T model)
+        public User Get(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<User> GetAll()
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Update(User item)
         {
             throw new NotImplementedException();
         }
