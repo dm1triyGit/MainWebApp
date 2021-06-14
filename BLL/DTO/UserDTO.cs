@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace BLL.DTO
+﻿namespace BLL.DTO
 {
     public class UserDTO
     {
@@ -14,6 +8,8 @@ namespace BLL.DTO
 
         public string Password { get; set; }
 
-        public string Role { get; set; }
+        public int RoleId { get; set; }
+
+        public string RoleName { get; set; }
     }
 }

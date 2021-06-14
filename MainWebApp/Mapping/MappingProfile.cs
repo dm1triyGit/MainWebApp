@@ -1,12 +1,7 @@
 ﻿using AutoMapper;
 using BLL.DTO;
 using DAL.Entities;
-using MainWebApp.Models.Account;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using WebUI.Models.Account;
 
 namespace WebUI.Mapping
 {
@@ -14,8 +9,17 @@ namespace WebUI.Mapping
     {
         public MappingProfile()
         {
-            CreateMap<User, UserDTO>();
+            CreateMap<User, UserDTO>()
+                .ForMember(dest => dest.RoleName, opt => opt.MapFrom(x => x.Role.Name));
+
+            CreateMap<UserDTO, User>();
+
+            CreateMap<Role, RoleDTO>();
+            CreateMap<RoleDTO, Role>();
+
             CreateMap<UserDTO, UserViewModel>();
+
+            CreateMap<RegisterViewModel, UserDTO>();
         }
     }
 }

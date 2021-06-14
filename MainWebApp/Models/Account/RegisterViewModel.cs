@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace MainWebApp.Models.Account
+namespace WebUI.Models.Account
 {
     public class RegisterViewModel
     {

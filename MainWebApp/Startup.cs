@@ -38,6 +38,7 @@ namespace MainWebApp
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseStaticFiles();
 
             app.UseStatusCodePages();
 

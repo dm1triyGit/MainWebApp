@@ -1,4 +1,4 @@
-﻿namespace MainWebApp.Models.Account
+﻿namespace WebUI.Models.Account
 {
     public class UserViewModel
     {

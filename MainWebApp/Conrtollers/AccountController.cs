@@ -1,31 +1,28 @@
 ﻿using AutoMapper;
 using BLL.Constants;
+using BLL.DTO;
 using BLL.Interfaces;
-using DAL.Repositories;
-using MainWebApp.Models.Account;
+using WebUI.Models.Account;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Logging;
 using System.Collections.Generic;
 using System.Security.Claims;
 using System.Threading.Tasks;
+using System.Linq;
 
-namespace MainWebApp.Conrtollers
+namespace WebUI.Conrtollers
 {
     public class AccountController : Controller
     {
         private readonly IUserService _userService;
-        private readonly ILogger<AccountController> _logger;
         private readonly IMapper _mapper;
 
         public AccountController(
             IUserService userService,
-            ILogger<AccountController> logger,
             IMapper mapper)
         {
             _userService = userService;
-            _logger = logger;
             _mapper = mapper;
         }
 
@@ -38,19 +35,21 @@ namespace MainWebApp.Conrtollers
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model)
-        {
-            if (ModelState.IsValid)
-            {
-                //Найти юзера в бд по ID
-                //if (user != null)
-                //{
-                //    await Authenticate(model.Login, model.Role); // аутентификация
+        {                                
+            var user = _userService
+                .Find(x => x.Login == model.Login
+                    && x.Password == model.Password)
+                .FirstOrDefault();
 
-                //    return RedirectToAction("Index", "Home");
-                //}
-                //ModelState.AddModelError("", "Некорректные логин и(или) пароль");
+            if (user == null)
+            {
+                ModelState.AddModelError(string.Empty, AccountConstants.NotCorrectLoginAndPass);
+                return View("Login");
             }
-            return View(model);
+
+            await Authenticate(user); 
+
+            return RedirectToAction("Index", "Home");
         }
 
         [HttpGet]
@@ -63,39 +62,46 @@ namespace MainWebApp.Conrtollers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
-            if (ModelState.IsValid)
-            {
-                //Найти юзера в бд по ID
-                //if (user == null)
-                //{
-                //    // добавляем пользователя в бд
-              
-                //    await Authenticate(model.Login, "user"); // аутентификация
+            bool result = false;
+            var newUser = new UserDTO();
 
-                //    return RedirectToAction("Index", "Home");
-                //}
-                //else
-                //    ModelState.AddModelError("", "Некорректные логин и(или) пароль");
+            var user = _userService
+               .Find(x => x.Login == model.Login
+                   || x.Password == model.Password)
+               .FirstOrDefault();
+
+            if (user == null && ModelState.IsValid)
+            {
+                newUser = BuildUser(model);
+                result = _userService.Create(newUser);
             }
-            return View(model);
+
+            if (!result)
+            {
+                ModelState.AddModelError(string.Empty, AccountConstants.ErrorCreateUser);
+                return View("Register");
+            }
+
+            await Authenticate(newUser);
+
+            return RedirectToAction("Index", "Home");
         }
 
-        private async Task Authenticate(string userName, string role)
+        private async Task Authenticate(UserDTO user)
         {
-            // создаем один claim
             var claims = new List<Claim>
             {
-                new Claim(ClaimsIdentity.DefaultNameClaimType, userName),
-                new Claim(ClaimsIdentity.DefaultRoleClaimType, role)
+                new Claim(ClaimsIdentity.DefaultNameClaimType, user.Login),
+                new Claim(ClaimsIdentity.DefaultRoleClaimType, user.RoleName)
             };
-            // создаем объект ClaimsIdentity
+
             ClaimsIdentity id = new ClaimsIdentity(
                 claims,
                 AccountConstants.AuthenticatedType,
                 ClaimsIdentity.DefaultNameClaimType,
                 ClaimsIdentity.DefaultRoleClaimType
                 );
-            // установка аутентификационных куки
+
             await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, new ClaimsPrincipal(id));
         }
 
@@ -104,5 +110,18 @@ namespace MainWebApp.Conrtollers
             await HttpContext.SignOutAsync(CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Login", "Account");
         }
+
+        private UserDTO BuildUser(RegisterViewModel model)
+        {
+            var role = _userService.GetRoleByName(AccountConstants.UserRoleName);
+
+            var user = _mapper.Map<RegisterViewModel, UserDTO>(model);
+
+            user.RoleId = role.Id;
+            user.RoleName = role.Name;
+
+            return user;
+        }
+
     }
 }

@@ -1,4 +1,5 @@
 ﻿using BLL.DTO;
+using DAL.Entities;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -7,8 +8,8 @@ using System.Threading.Tasks;
 
 namespace BLL.Interfaces
 {
-    public interface IUserService : IService<UserDTO>
+    public interface IUserService : IService<UserDTO, User>
     {
-        
+        RoleDTO GetRoleByName(string roleName);
     }
 }

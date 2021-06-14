@@ -3,13 +3,15 @@ using System.Collections.Generic;
 
 namespace BLL.Interfaces
 {
-    public interface IService<T> where T : class
+    public interface IService<T, TEntity>
+        where T : class
+        where TEntity : class
     {
         IEnumerable<T> GetAll();
         T Get(int id);
-        IEnumerable<T> Find(Func<T, bool> predicate);
-        void Create(T item);
-        void Update(T item);
-        void Delete(int id);
+        IEnumerable<T> Find(Func<TEntity, bool> predicate);
+        bool Create(T item);
+        bool Update(T item);
+        bool Delete(T item);
     }
 }

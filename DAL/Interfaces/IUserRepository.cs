@@ -9,6 +9,6 @@ namespace DAL.Interfaces
 {
     public interface IUserRepository : IRepository<User>
     {
-        
+        Role GetRole(string roleName);
     }
 }

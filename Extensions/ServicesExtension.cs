@@ -14,8 +14,8 @@ namespace Extensions
 
         public static void RegisterServices(this IServiceCollection services)
         {
-            services.AddSingleton<IUserRepository,UserRepository>();
-            services.AddSingleton<IUserService, UserService>();
+            services.AddScoped<IUserRepository,UserRepository>();
+            services.AddScoped<IUserService, UserService>();
         }
 
         public static void AddCustomAuthentication(this IServiceCollection services)
@@ -24,6 +24,7 @@ namespace Extensions
                 .AddCookie(options =>
                 {
                     options.LoginPath = new PathString(RedirectPath);
+                    //options.AccessDeniedPath = new PathString(RedirectPath);
                 });
         }
     }

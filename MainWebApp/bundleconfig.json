@@ -1,0 +1,13 @@
+﻿[
+  {
+    "outputFileName": "wwwroot/bundles/css/main.min.css",
+    "inputFiles": [
+      "wwwroot/css/account.css"
+    ],
+    "minify": {
+      "enabled": false,
+      "renameLocals": false
+    },
+    "sourceMap": false
+  }
+]
