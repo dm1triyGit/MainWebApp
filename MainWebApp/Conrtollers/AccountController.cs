@@ -29,13 +29,16 @@ namespace WebUI.Conrtollers
         [HttpGet]
         public IActionResult Login()
         {
+            ViewBag.Title = AccountConstants.EnterTitle;
             return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Login(LoginViewModel model)
-        {                                
+        {
+            ViewBag.Title = AccountConstants.EnterTitle;
+
             var user = _userService
                 .Find(x => x.Login == model.Login
                     && x.Password == model.Password)
@@ -47,7 +50,7 @@ namespace WebUI.Conrtollers
                 return View("Login");
             }
 
-            await Authenticate(user); 
+            await Authenticate(user);
 
             return RedirectToAction("Index", "Home");
         }
@@ -55,6 +58,7 @@ namespace WebUI.Conrtollers
         [HttpGet]
         public IActionResult Register()
         {
+            ViewBag.Title = AccountConstants.RegistrationTitle;
             return View();
         }
 
@@ -62,6 +66,8 @@ namespace WebUI.Conrtollers
         [ValidateAntiForgeryToken]
         public async Task<IActionResult> Register(RegisterViewModel model)
         {
+            ViewBag.Title = AccountConstants.RegistrationTitle;
+
             bool result = false;
             var newUser = new UserDTO();
 

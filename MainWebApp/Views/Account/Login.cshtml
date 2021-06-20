@@ -1,30 +1,24 @@
 ﻿@model WebUI.Models.Account.LoginViewModel
 @{
-    Layout = "_Layout";
+    Layout = "_AccountLayout";
 }
-<div class="container">
-
-    <form asp-action="Login" asp-controller="Account" asp-anti-forgery="true" class="form">
-        <a asp-action="Register" asp-controller="Account">Регистрация</a>
-
-        <h2 class="form-signin-heading">Вход на сайт</h2>
-
-        <div class="validation" asp-validation-summary="ModelOnly"></div>
-
-        <div>
-            <div class="">
-                <label asp-for="Login">Введите логин</label>
-                <input type="text" asp-for="Login" />
-                <span asp-validation-for="Login" />
-            </div>
-            <div class="form-group">
-                <label asp-for="Password">Введите пароль</label>
-                <input asp-for="Password" />
-                <span asp-validation-for="Password" />
-            </div>            
-            <div class="form-group">
-                <input type="submit" value="Войти" class="btn btn-outline-dark" />
-            </div>
+<div class="acc-container">
+    <form asp-action="Login" asp-controller="Account" asp-anti-forgery="true" class="acc-form">
+        <h2>Вход на сайт</h2>
+        <div asp-validation-summary="ModelOnly"></div>
+        <div class="acc-form-row">
+            <label asp-for="Login" class="acc-form-label">Введите логин</label>
+            <input type="text" asp-for="Login" placeholder="login" class="acc-form-row-input"/>
+            <span asp-validation-for="Login" />
+        </div>
+        <div class="acc-form-row">
+            <label asp-for="Password" class="acc-form-label">Введите пароль</label>
+            <input type="password" asp-for="Password" placeholder="password" class="acc-form-row-input"/>
+            <span asp-validation-for="Password" />
+        </div>
+        <div class="acc-btn-container-space-between">
+            <input type="submit" value="Войти" class="acc-btn" />
+            <a asp-action="Register" asp-controller="Account" class="acc-btn">Регистрация</a>
         </div>
     </form>
 </div>

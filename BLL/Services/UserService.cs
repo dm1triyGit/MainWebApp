@@ -37,13 +37,14 @@ namespace BLL.Services
                 }
 
                 var user = _mapper.Map<UserDTO, User>(item);
-                _userRepository.Create(user);
+                _userRepository.CreateAsync(user);
             }
             catch(Exception ex)
             {
                 _logger.LogError(ex, ErrorMessageConstants.CreateErrorMessage);
                 return false;
             }
+
             return true;
         }
 
@@ -57,13 +58,14 @@ namespace BLL.Services
                 }
 
                 var user = _mapper.Map<UserDTO, User>(item);
-                _userRepository.Delete(user);
+                _userRepository.DeleteAsync(user);
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex, ErrorMessageConstants.DeleteErrorMessage);
                 return false;
             }
+
             return true;
         }
 
@@ -73,7 +75,7 @@ namespace BLL.Services
 
             try
             {
-                var users = _userRepository.Find(predicate);
+                var users = _userRepository.FindAsync(predicate).Result;
                 usersDTO = _mapper.Map<IEnumerable<User>, List<UserDTO>>(users); 
             }
             catch (Exception ex)
@@ -91,7 +93,7 @@ namespace BLL.Services
 
             try
             {
-                var user = _userRepository.Get(id);
+                var user = _userRepository.GetAsync(id).Result;
                 userDTO = _mapper.Map<User, UserDTO>(user);
             }
             catch(Exception ex)
@@ -137,7 +139,7 @@ namespace BLL.Services
 
             try
             {
-                var role = _userRepository.GetRole(roleName);
+                var role = _userRepository.GetRoleAsync(roleName).Result;
                 roleDTO = _mapper.Map<Role, RoleDTO>(role);
             }
             catch (Exception ex)

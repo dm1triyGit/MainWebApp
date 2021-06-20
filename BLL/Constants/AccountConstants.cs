@@ -16,5 +16,8 @@ namespace BLL.Constants
 
         public const string NotCorrectLoginAndPass = "Некорректные логин или пароль";
         public const string ErrorCreateUser = "Ошибка при создании пользователя";
+
+        public const string EnterTitle = "Вход";
+        public const string RegistrationTitle = "Регистрация";
     }
 }

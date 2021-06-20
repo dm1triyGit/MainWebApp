@@ -4,6 +4,7 @@ using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Threading.Tasks;
 
 namespace DAL.Repositories
 {
@@ -16,30 +17,37 @@ namespace DAL.Repositories
             _context = context;
         }
 
-        public void Create(User item)
+        public async Task CreateAsync(User item)
         {
-            _context.Users.Add(item);
-            _context.SaveChanges();
+           await _context.Users.AddAsync(item);
+           await _context.SaveChangesAsync();
         }
 
-        public void Delete(User item)
+        public async Task DeleteAsync(User item)
         {
             _context.Users.Remove(item);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
-        public IEnumerable<User> Find(Func<User, bool> predicate)
+        public async Task<IEnumerable<User>> FindAsync(Func<User, bool> predicate)
         {
-            return _context.Users
-                .Include(x => x.Role)
-                .Where(predicate);
+            var users = Enumerable.Empty<User>();
+
+            await Task.Run(() =>
+            {
+                users = _context.Users
+                   .Include(x => x.Role)
+                   .Where(predicate);
+            });
+
+            return users;
         }
 
-        public User Get(int id)
+        public async Task<User> GetAsync(int id)
         {
-            return _context.Users
+            return await _context.Users
                 .Include(x => x.Role)
-                .FirstOrDefault(x => x.Id == id);
+                .FirstOrDefaultAsync(x => x.Id == id);
         }
 
         public IEnumerable<User> GetAll()
@@ -47,15 +55,15 @@ namespace DAL.Repositories
             return _context.Users.Include(x => x.Role);
         }
 
-        public void Update(User item)
+        public async Task UpdateAsync(User item)
         {
             _context.Update(item);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
         }
 
-        public Role GetRole(string roleName)
+        public async Task<Role> GetRoleAsync(string roleName)
         {
-           return _context.Roles.FirstOrDefault(x => x.Name == roleName);
+           return await _context.Roles.FirstOrDefaultAsync(x => x.Name == roleName);
         }
     }
 }

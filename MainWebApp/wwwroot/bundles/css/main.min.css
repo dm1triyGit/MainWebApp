@@ -4,16 +4,17 @@ body {
     margin: 0;
     padding: 0;
     overflow: hidden;
+    font-family: sans-serif;
 }
 
-.form {
+.acc-form {
     border-style: solid;
     border-radius: 10px;
     padding: 20px;
     background-color: gainsboro;
 }
 
-.container {
+.acc-container {
     width: 100%;
     height: 100%;
     position: fixed;
@@ -23,4 +24,66 @@ body {
     align-items: center;
     justify-content: center;
     overflow: auto;
+    background-image: url(/images/epic-midieval.jpg);
+}
+
+    .acc-container h2 {
+        display: block;
+        text-align: center;
+        margin-top: 2%;
+        margin-bottom: 10%;
+    }
+
+.acc-form-row {
+    margin-bottom: 1rem;
+}
+
+.acc-form-label {
+    width: 120px;
+    display: inline-block;
+    margin-right: 10px;
+}
+
+.acc-btn {
+    display: inline-block;
+    color: black;
+    font-weight: 700;
+    text-decoration: none;
+    user-select: none;
+    padding: .5rem 2rem;
+    outline: none;
+    border: 2px solid;
+    border-radius: 1px;
+    transition: 0.2s;
+    font-size: 13px;
+    background: lightgrey;
+    cursor: pointer;
+}
+
+    .acc-btn:hover {
+        background: rgba(255,255,255,.2);
+    }
+
+    .acc-btn:active {
+        background: white;
+    }
+
+.acc-btn-container-space-between {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10%;
+}
+
+.acc-btn-container-center {
+    display: flex;
+    justify-content: center;
+    margin-top: 10%;
+}
+
+.acc-form-row-input {
+    padding: 6px 0 4px 10px;
+    border: 1px solid #cecece;
+    background: #F6F6f6;
+    font-family: sans-serif;
+    font-size: 15px;
 }
